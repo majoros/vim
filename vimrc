@@ -1,3 +1,6 @@
+" Pathogen testing
+call pathogen#infect($BUNDLE_ROOT) 
+
 "clear existing commands
 autocmd!
 
