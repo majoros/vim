@@ -1,11 +1,13 @@
-" Pathogen testing
-call pathogen#infect($BUNDLE_ROOT) 
 
 "clear existing commands
 autocmd!
 
 set nocompatible
 let mapleader = ","
+
+" Pathogen
+"execute pathogen#infect('bundle/{}', '~/.vim/bundle/{}')
+call pathogen#infect($BUNDLE_ROOT_STR)
 
 " Remap Esc so I don't have remove my hand from the home row
 imap jj <Esc>
@@ -26,10 +28,10 @@ set vb t_vb=
 set hidden
 
 " NERDTree stuff  *********************************************************************
-let NERDTreeHighlightCursorline = 1
+let NERDTreeHighlightCursorline = 0
 let NERDTreeIgnore = ['^\.git$', '^RCS$']
 let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+let NERDTreeDirArrows = 0
 noremap <Leader>d :NERDTreeToggle<CR>
 
 " Timeouts *********************************************************************
@@ -47,7 +49,9 @@ set t_Co=256
 syntax on " syntax highlighting
 
 if &term =~ ".*256color"
-    colorscheme xoria256
+    "colorscheme xoria256
+    set bg=dark
+    colorscheme solarized
 else
     colorscheme ir_black
 endif
@@ -75,10 +79,10 @@ set ruler " Show ruler
 set laststatus=2
 set showtabline=0
 
-hi StatusLine ctermbg=22 ctermfg=White
-
-hi User1 ctermbg=9 ctermfg=0 guibg=9 guifg=0
-hi User2 ctermbg=22 ctermfg=40 guibg=22 guifg=51
+"hi StatusLine ctermbg=22 ctermfg=White
+"
+"hi User1 ctermbg=9 ctermfg=0 guibg=9 guifg=0
+"hi User2 ctermbg=22 ctermfg=40 guibg=22 guifg=51
 
 set statusline=                      " clear out the status line.
 set statusline+=[%R%M]               "File flags
