@@ -28,10 +28,11 @@ set vb t_vb=
 set hidden
 
 " NERDTree stuff  *********************************************************************
-let NERDTreeHighlightCursorline = 0
-let NERDTreeIgnore = ['^\.git$', '^RCS$']
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 0
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeIgnore = ['^\.git$', '^RCS$']
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 0
+let g:NERDChristmasTree = 0
 noremap <Leader>d :NERDTreeToggle<CR>
 
 " Timeouts *********************************************************************
@@ -42,6 +43,15 @@ set timeoutlen=500
 set ttimeoutlen=500
 
 " Colors ***********************************************************************
+
+let g:solarized_termcolors = 16
+let g:solarized_termtrans = 1
+"let g:solarized_degrade   = 0
+"let g:solarized_bold      = 0
+"let g:solarized_underline = 0
+"let g:solarized_italic    = 0
+" let g:solarized_contrast  = "low"
+"let g:solarized_visibility = "low"
 
 syntax enable
 set term=screen-256color
@@ -97,17 +107,17 @@ set statusline+=%=%h%w\              "Right justify
 " I *REALLY* don't line trailing whitespace.
 set statusline+=%1*
 set statusline+=%{StatuslineTrailingSpaceWarning()}
-set statusline+=%*\ 
+set statusline+=%*
 
 " I like mixed whitespace even less then trailing white space.
 set statusline+=%1*
 set statusline+=%{StatuslineTabWarning()}
-set statusline+=%*\ 
+set statusline+=%*
 
-set statusline+=[FORMAT=%{&ff}]\     "file format
-set statusline+=[TYPE=%Y]\           "file type
-set statusline+=[ASCII=\%04.3b]\     "decimal value of the char the cursor is on.
-set statusline+=[HEX=\%02.2B]\       "HEX value of the char the cursor is on.
+set statusline+=[FORMAT=%{&ff}]     "file format
+set statusline+=[TYPE=%Y]           "file type
+set statusline+=[ASCII=\%04.3b]     "decimal value of the char the cursor is on.
+set statusline+=[HEX=\%02.2B]       "HEX value of the char the cursor is on.
 
 " Cursor position
 set statusline+=[POS=                "Start
@@ -116,9 +126,9 @@ set statusline+=%04l                 "Line
 set statusline+=%*                   "Line
 set statusline+=,
 set statusline+=%04v                 "Char
-set statusline+=]\                   "End
+set statusline+=]                    "end
 
-set statusline+=[%02p%%]\            "Percent through the file
+set statusline+=[%02p%%]             "Percent through the file
 set statusline+=[LEN=%L]             "Length of the file
 
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
