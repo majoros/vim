@@ -27,6 +27,13 @@ set ffs=unix,dos
 set vb t_vb=
 set hidden
 
+" Bufexplorer  stuff  *********************************************************************
+let g:bufExplorerDetailedHelp = 1
+let g:bufExplorerSortBy = 'fullpath'
+let g:bufExplorerShowTabBuffer = 0
+let g:bufExplorerShowRelativePath = 1
+let g:bufExplorerShowNoName = 1
+
 " NERDTree stuff  *********************************************************************
 let g:NERDTreeHighlightCursorline = 0
 let g:NERDTreeIgnore = ['^\.git$', '^RCS$']
@@ -183,8 +190,8 @@ let perl_nofold_packages=1
 " Directories ******************************************************************
 
 " TODO: check to make sure they exist and create them if they do not.
-set directory=~/.vim/swap
-set backupdir=~/.vim/backup
+set directory=/var/tmp/.majoros_env/vim/swap
+set backupdir=/var/tmp/.majoros_env/vim/backup
 set backup
 
 " Spell check  *****************************************************************

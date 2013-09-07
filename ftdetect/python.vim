@@ -6,8 +6,9 @@ function Check_if_python()
 
     "Check the shabang
     if getline(1) =~ '^#!.*python'
+        let g:python_highlight_indent_errors = 1
         setf python
-        finish
+        return
     endif
 
     "as a last ditch effort such as a python script within a batch file.
@@ -16,8 +17,9 @@ function Check_if_python()
     let i = 1
     while i <= 12
         if getline(i) =~ '-\*- Python -\*-'
+            let g:python_highlight_indent_errors = 1
             setf python
-            finish
+            return
         endif
         let i += 1
     endwhile

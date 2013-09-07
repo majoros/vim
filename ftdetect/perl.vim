@@ -7,7 +7,7 @@ function Check_if_perl()
     "Check the shabang
     if getline(1) =~ '^#!.*perl'
         setf perl
-        finish
+        return
     endif
 
     "as a last ditch effort such as a perl script within a batch file.
@@ -17,7 +17,7 @@ function Check_if_perl()
     while i <= 12
         if getline(i) =~ '-\*- perl -\*-'
             setf perl
-            finish
+            return
         endif
         let i += 1
     endwhile
