@@ -13,7 +13,6 @@ call pathogen#infect($BUNDLE_ROOT_STR)
 imap jj <Esc>
 
 " Indenting ********************************************************************
-
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -22,10 +21,12 @@ set smartindent
 set expandtab
 
 " Misc settings ****************************************************************
-
 set ffs=unix,dos
 set vb t_vb=
 set hidden
+
+" Syntastic stuff ********************************************************************
+let g:syntastic_python_checkers=['pylint']
 
 " Bufexplorer  stuff  *********************************************************************
 let g:bufExplorerDetailedHelp = 1
@@ -50,7 +51,6 @@ set timeoutlen=500
 set ttimeoutlen=500
 
 " Colors ***********************************************************************
-
 let g:solarized_termcolors = 16
 let g:solarized_termtrans = 1
 "let g:solarized_degrade   = 0
@@ -89,8 +89,6 @@ set matchpairs+=<:>
 
 
 " Status/Tab Line **************************************************************
-
-
 set showcmd
 set ruler " Show ruler
 set laststatus=2
@@ -179,7 +177,6 @@ function! Get_nice_path()
 endfun
 
 " Fold Lines *******************************************************************
-
 set foldenable
 set foldmethod=indent
 set foldminlines=3
@@ -188,21 +185,18 @@ let perl_fold=1
 let perl_nofold_packages=1
 
 " Directories ******************************************************************
-
 " TODO: check to make sure they exist and create them if they do not.
 set directory=/var/tmp/.majoros_env/vim/swap
 set backupdir=/var/tmp/.majoros_env/vim/backup
 set backup
 
 " Spell check  *****************************************************************
-"
 set spellfile=~/.vim/spellfile.add
 set sps=best,15
 let perl_include_pod=1
 set spell spelllang=en_us
 
 " Searching  *******************************************************************
-
 set showmatch
 set hlsearch
 set incsearch
@@ -210,24 +204,20 @@ set ignorecase
 set smartcase
 
 " Formating ********************************************************************
-
 "set formatoptions=tcanw
 set comments=sl:##,mb:##,elx:#
 set textwidth=120
 
 " Line Wrapping ****************************************************************
-
 set nowrap
 set linebreak  " Wrap at word
 
 " Invisible characters *********************************************************
-
 set listchars=trail:.,tab:>-,eol:$
 set nolist
 noremap <Leader>i :set list!<CR> " Toggle invisible chars
 
 " File type specific ***********************************************************
-
 filetype on
 filetype plugin indent on
 
@@ -251,7 +241,6 @@ autocmd BufNewFile,BufRead *.jil set filetype=jil
 
 
 " Key mapping ******************************************************************
-
 " Keep search matches in the middle of the window.
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -281,7 +270,6 @@ noremap j gj
 noremap k gk
 
 " Startup **********************************************************************
-
 " only want NERDTree if I don't pass in a file to edit.
 if empty(bufname("%"))
     autocmd VimEnter * exe 'NERDTree' | wincmd l
